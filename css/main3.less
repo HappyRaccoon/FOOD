@@ -1,0 +1,365 @@
+@font-face {
+	font-family: 'whatever it takes';
+	src: url('../fonts/whatever it takes.ttf'); 
+}
+@font-face {
+	font-family: 'whatever it takes bold';
+	src: url('../fonts/whatever it takes bold.ttf'); 
+}
+
+@Mont : 'Montserrat', sans-serif;
+@Roboto : 'Roboto Slab', serif;
+@Open : 'Open Sans', sans-serif;
+@What : 'whatever it takes';
+@WhatBold : 'whatever it takes bold';
+
+@hover: #e8500e;
+@standart: #fcfbf9;
+@white: #fff;
+@border: #e6e6e6;
+@gray: #414551; 
+
+.border-radius(@value) {
+	border-radius: @value;
+}
+.mar_auto {
+	float: none !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+header {
+	padding: 22px 0 22px;
+	background-image: url('../img/header_bg.jpg');
+	background-size: cover;
+
+	a {
+		&:visited {
+			outline: none !important;
+		}
+	}
+
+	ul{
+
+		li{
+			padding: 10px 16px 0 15px; 
+
+			.active{
+				color: @hover;
+				font-weight: bold;
+			}
+
+			a{
+				text-decoration: none;
+				color:@standart;
+				font-family: @Mont;
+				font-size: 12px;
+				font-weight: bold;
+
+
+				&:hover{
+					color: @hover;
+						
+				}
+			}
+		}
+	}
+}
+.choose {
+	background-color: @standart;
+	.main {
+		padding: 0;
+	}
+
+	ul {
+		margin: 0;
+		padding: 15px 90px 15px 0;
+
+		li {
+			padding-right: 65px;
+		}
+	}	
+}
+
+.search {
+	background-color: #121924; 
+
+	.container > div {
+		text-align: center;
+		margin-bottom: 10%;
+    	margin-top: 10%;
+		color: @white;
+
+		h2 {
+			font-size: 42px;
+			font-family: @Roboto;
+			font-weight: 400;
+			line-height: 32.5px;
+			letter-spacing: 4px;
+			margin-bottom: 23px;
+		}
+
+		p {
+			font-family: @Open;
+			font-size: 14px;
+			margin-bottom: 52px;
+		}
+
+		form {
+
+			font-family: @Open;
+			font-size: 15px;
+			line-height: 32.5px;
+
+			input[type='text'] {
+				max-width: 344px;
+				width: 100%;
+				height: 55px;
+				border: none;
+				color: #bbbcc0;
+				text-indent: 14px;
+				.border-radius(3px);
+
+			}
+
+			input[type='submit'] {
+				max-width: 200px;
+				width: 100%;
+				height: 55px;
+				.border-radius(3px);
+				border: none;
+				background: @hover url('../img/search.png') no-repeat right center;
+				
+				text-align: left;
+				padding-left: 6%;
+				padding-right: 3.25%;
+				background-origin: content-box;
+			}
+
+
+			::-webkit-input-placeholder {color:#bbbcc0;}
+			::-moz-placeholder          {color:#bbbcc0;}
+			:-moz-placeholder           {color:#bbbcc0;}
+			:-ms-input-placeholder      {color:#bbbcc0;}
+		}
+	}
+}
+
+.filters {
+	background: url('../img/restoran_section.jpg');
+
+	.header {
+		border-bottom: 1px solid @border;
+		p {
+			display: inline-block;
+			float: left;
+			margin: 25px 0;
+			font-family: @Open;
+			font-size: 14px;
+			color: @gray;
+
+		}
+
+		p.one {
+			float: right;
+		}
+	}
+
+	.central {
+		margin-top: 30px;
+
+		aside {
+			border: 1px solid @border;
+			background-color: @standart;
+			padding: 0;
+
+			.first {
+				background-color: @hover;
+				padding: 22px 15px;
+				text-align: center;
+				ul {
+					margin: 0;
+
+					li{
+						&:nth-child(2) {
+							padding: 0 87px;
+						}
+
+						font-size: @Open;
+						font-weight: 600;
+						font-size: 13.43px;
+						color: @white;
+					}
+				}
+			}
+
+			.second {
+				margin: 19px auto 30px;
+				height: 50px;
+				width: 333px;
+				border: 1px solid @border;
+
+				form {
+					margin: 0;
+					padding: 0;
+					height: 100%;
+					width: 100%;
+					input[type='text'] {
+						font-family: @Open;
+						font-weight: 300;
+						color: #748796;
+						font-size: 14px;
+						text-indent: 15px;
+						margin: 0;
+						width: 271px;
+						height: 100%;
+						border: none;
+					}
+
+					input[type='submit'] {
+						width: 55px;
+						height: 35px;
+						background: @white url('../img/search2.png') no-repeat center;
+						border: none;
+						border-left: 1px solid @border;
+					}
+				}
+			}
+
+			.third {
+				border-bottom: 1px solid @border;
+				margin-bottom: 20px;
+
+				form {
+					div {
+						margin-left: 23px;
+					}
+				}
+
+				.aaa {
+					width: 30px; 
+					height: 30px;
+					display: block;
+					position: relative;
+					float: left;
+				}
+
+				input[type="checkbox"] {
+					display: none;
+				}
+
+				input[type="checkbox"] + span {
+					position: absolute;
+					left: 0; top: 0;
+					width: 100%; height: 100%;
+					background: url('../img/checkbox_sprite.png') no-repeat;
+					cursor: pointer;
+				}
+
+				input[type="checkbox"]:checked + span {
+ 					background-position: 0 -30px;
+				}
+
+				.bbb {
+					font-family: @Open;
+					font-size: 14px;
+					font-weight: 300;
+					line-height: 30px;
+					color: @gray;
+					text-indent: 15px;
+				}
+				button {
+					margin-left: 17%;
+					margin-bottom: 32px;
+					background-color: #fff;
+					border: 1px solid @border;
+					.border-radius(3px);
+					font-size: 6px;
+					color: #bebac2;
+					padding: 4px 8px;
+
+					i {
+						&:nth-child(2) {
+							padding: 0 3px;
+						}
+					}
+				}
+			}
+
+			.fours {
+
+				h4 {
+					margin-left: 20px;
+					font-family: @Open;
+					font-size: 11.51px;
+					line-height: 11.51px;
+					font-weight: 600;
+					text-transform: uppercase;
+					color: #52555f;
+				}
+
+				form {
+					div{
+						float: left;
+						margin: 20px 10px 23px 20px;
+					}
+
+					.one {
+						width: 30px; 
+						height: 30px;
+						display: block;
+						position: relative;
+						float: left;
+					}
+
+					input[type="radio"] {
+						display: none;
+					}
+
+					input[type="radio"] + span {
+						position: absolute;
+						left: 0; top: 0;
+						width: 100%; height: 100%;
+						background: url('../img/checkbox_sprite.png') no-repeat;
+						cursor: pointer;
+					}
+
+					input[type="radio"]:checked + span {
+ 						background-position: 0 -30px;
+					}
+
+					.two {
+						font-family: @Open;
+						font-size: 14px;
+						font-weight: 300;
+						line-height: 30px;
+						color: @gray;
+						text-indent: 15px;
+					}
+				}
+			}	
+		}
+	}
+}
+
+
+
+@media screen and (max-width:479px) {
+
+	.choose {
+		li{
+			margin: 15px 0 15px 25px;
+		}
+	}
+
+	.search {
+		h2{
+			line-height: 42px !important;
+		}
+
+		form input[type="submit"] {
+			margin-top: 20px;
+		}
+	}
+}
+
