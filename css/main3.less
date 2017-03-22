@@ -490,25 +490,25 @@ header {
 			}	
 		}
 		.restaurants {
-			.block {
-				margin-left: 30px;
-				border-radius: 2px;
+			.row {
 				border: 1px solid #ededed;
-				display: flex;
-				margin-bottom: 30px;
+				margin: 0 0 30px 30px;
 				background-color: @standart;
+			}
+			.block {
+				height: 100%;
+				border-radius: 2px;
+				display: flex;
+				float: left;
 
 				.left {
 					float: left;
 					padding: 15px 17px 15px 15px;
-					width: 17.67%;
-
 				}
 				.middle {
 					font-family: @Open;
 					float: left;
 					padding: 15px 0;
-					width: 58.33%;
 
 					h5 {
 						color: @gray;
@@ -560,37 +560,38 @@ header {
 						}
 					}
 				}
+			}
 
-				.right {
-					float: left;
-					width: 24%;
-					border-left: 1px solid @border;
-					background-color: @white;
-					padding: 15px 37px;
-					text-align: center;
-					img {
+			.right {
+				height: 100%;
+				float: right;
+				border-left: 1px solid @border;
+				background-color: @white;
+				padding: 15px 37px;
+				text-align: center;
+				img {
 
-					}
-					h6 {
-						font-size: 14px;
-						color: #748796;
-						font-weight: 300;
-						margin-top: 18px;
-						margin-bottom: 13px;
-					}
-					a {
-						display: inline-block;
-						float: right;
-						color: @hover;
-						font-size: 14px;
-						font-weight: 300;
-						border: 2px dashed @hover;
-						border-radius: 3px;
-						padding: 6px 15px;
-						text-decoration: none;
-					}
+				}
+				h6 {
+					font-size: 14px;
+					color: #748796;
+					font-weight: 300;
+					margin-top: 18px;
+					margin-bottom: 13px;
+				}
+				a {
+					display: inline-block;
+					float: right;
+					color: @hover;
+					font-size: 14px;
+					font-weight: 300;
+					border: 2px dashed @hover;
+					border-radius: 3px;
+					padding: 6px 15px;
+					text-decoration: none;
 				}
 			}
+
 			nav {
 				margin-left: 12px;
 				ul {
@@ -733,6 +734,20 @@ footer {
 					input[type='text'] {
 						width: 200px !important;
 					}
+				}
+			}
+		}
+		.restaurants {
+			margin-top: 20px;
+			.row {
+				margin: 0 0 30px 0px !important;
+			}
+			.right {
+				width: 100%;
+				border: none !important;
+				border-top: 1px solid @border !important;
+				a {
+					margin-right: 27% !important;
 				}
 			}
 		}
