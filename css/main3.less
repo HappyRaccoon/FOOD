@@ -30,7 +30,7 @@
 
 header {
 	padding: 22px 0 22px;
-	background-image: url('../img/header_bg.jpg');
+	background-color: #121924;
 	background-size: cover;
 
 	a {
@@ -40,7 +40,7 @@ header {
 	}
 
 	ul{
-
+		float: right;
 		li{
 			padding: 10px 16px 0 15px; 
 
@@ -82,7 +82,13 @@ header {
 }
 
 .search {
-	background-color: #121924; 
+	background-image: url('../img/middle1.jpg');
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 389px;
+    overflow: hidden;
+    position: relative;
 
 	.container > div {
 		text-align: center;
@@ -144,12 +150,24 @@ header {
 		}
 	}
 }
+.search::before {
+    background-color: rgba(18, 25, 36, 0.57);
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
 
 .filters {
-	background: url('../img/restoran_section.jpg');
+	background: @white;
+	margin-bottom: 20px;
 
 	.header {
 		border-bottom: 1px solid @border;
+		background: @standart;
 		p {
 			display: inline-block;
 			float: left;
@@ -229,65 +247,77 @@ header {
 			.third {
 				border-bottom: 1px solid @border;
 				margin-bottom: 20px;
-
 				form {
-					div {
-						margin-left: 23px;
-					}
-				}
-
-				.aaa {
-					width: 30px; 
-					height: 30px;
-					display: block;
-					position: relative;
-					float: left;
-				}
-
-				input[type="checkbox"] {
-					display: none;
-				}
-
-				input[type="checkbox"] + span {
-					position: absolute;
-					left: 0; top: 0;
-					width: 100%; height: 100%;
-					background: url('../img/checkbox_sprite.png') no-repeat;
-					cursor: pointer;
-				}
-
-				input[type="checkbox"]:checked + span {
- 					background-position: 0 -30px;
-				}
-
-				.bbb {
-					font-family: @Open;
-					font-size: 14px;
-					font-weight: 300;
-					line-height: 30px;
-					color: @gray;
-					text-indent: 15px;
-				}
-				button {
-					margin-left: 17%;
-					margin-bottom: 32px;
-					background-color: #fff;
-					border: 1px solid @border;
-					.border-radius(3px);
-					font-size: 6px;
-					color: #bebac2;
-					padding: 4px 8px;
-
-					i {
-						&:nth-child(2) {
-							padding: 0 3px;
+					ul {
+						margin-bottom: 40px;
+						li {
+							list-style: none;
+							margin-bottom: 10px;
+							label {
+								font-family: @Open;
+								font-size: 14px;
+								font-weight: 300;
+								line-height: 30px;
+								color: @gray;
+								text-indent: 15px;
+							}
 						}
 					}
+					// styles for IE 8-
+					.checkbox {
+  						vertical-align: top;
+  						margin: 0 3px 0 0;
+  						width: 17px;
+ 						height: 17px;
+					}
+					// показываем, что label кликабельный
+					.checkbox + label {
+  						cursor: pointer;
+					}
+					// прячем оригинальный чекбокс
+					.checkbox:not(checked) {
+  						position: absolute;
+  						opacity: 0;
+					}
+					// позиционируем псевдочекбокс и оставляем слева от label место под псевдочекбокс
+					.checkbox:not(checked) + label {
+  						position: relative; 
+  						padding: 0 0 0 40px; 
+					}
+					// оформляем чекбокс в выкл состоянии
+					.checkbox:not(checked) + label:before {
+  						content: '';
+  						position: absolute;
+  						top: -3px;
+  						left: 0;
+  						width: 23px;
+  						height: 23px;
+  						border: 1px solid @border;
+  						border-radius: 50%;
+  						background: #FFF;
+					}
+					// Оформление второй части чекбокса в выключенном состоянии
+					.checkbox:not(checked) + label:after {
+  						content: '';
+  						position: absolute;
+  						left: 3px;
+  						width: 17px;
+  						height: 17px;
+ 						border-radius: 50%;
+  						background: @hover no-repeat center;
+  						background-image: url('../img/check2.png');
+  						box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+  						opacity: 0;
+  						transition: all .2s; /*анимация, чтобы чекбокс переключался плавно*/
+					}
+					.checkbox:checked + label:after {
+						opacity: 1;
+					}											
 				}
 			}
 
 			.fours {
-
+				border-bottom: 1px solid @border;
 				h4 {
 					margin-left: 20px;
 					font-family: @Open;
@@ -299,36 +329,57 @@ header {
 				}
 
 				form {
-					div{
-						float: left;
-						margin: 20px 10px 23px 20px;
+					ul {
+						margin-top: 20px;
+						li {
+							margin-left: 30px;
+						}
 					}
-
-					.one {
-						width: 30px; 
-						height: 30px;
-						display: block;
-						position: relative;
-						float: left;
+					.radio {
+						vertical-align: top;
+  						margin: 0 3px 0 0;
+  						width: 17px;
+ 						height: 17px;
 					}
-
-					input[type="radio"] {
-						display: none;
+					.radio + label {
+  						cursor: pointer;
 					}
-
-					input[type="radio"] + span {
-						position: absolute;
-						left: 0; top: 0;
-						width: 100%; height: 100%;
-						background: url('../img/checkbox_sprite.png') no-repeat;
-						cursor: pointer;
+					.radio:not(checked) {
+  						position: absolute;
+  						opacity: 0;
 					}
-
-					input[type="radio"]:checked + span {
- 						background-position: 0 -30px;
+					.radio:not(checked) + label {
+  						position: relative; 
+  						padding: 0 0 0 30px; 
 					}
-
-					.two {
+					.radio:not(checked) + label:before {
+  						content: '';
+  						position: absolute;
+  						top: -3px;
+  						left: 0;
+  						width: 23px;
+  						height: 23px;
+  						border: 1px solid @border;
+  						border-radius: 50%;
+  						background: #FFF;
+					}
+					.radio:not(checked) + label:after {
+  						content: '';
+  						position: absolute;
+  						left: 3px;
+  						width: 17px;
+  						height: 17px;
+ 						border-radius: 50%;
+  						background: @hover no-repeat center;
+  						background-image: url('../img/check2.png');
+  						box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+  						opacity: 0;
+  						transition: all .2s; /*анимация, чтобы чекбокс переключался плавно*/
+					}
+					.radio:checked + label:after {
+						opacity: 1;
+					}
+					label {
 						font-family: @Open;
 						font-size: 14px;
 						font-weight: 300;
@@ -337,10 +388,315 @@ header {
 						text-indent: 15px;
 					}
 				}
+			}
+			.fifth {
+				border-bottom: 1px solid @border;
+				p {
+					margin:20px 0 20px 20px;
+					label {
+						color: @gray;
+						font-family: @Open;
+						text-transform: uppercase;
+						font-weight: 600;
+						font-size: 11.51px;
+					}
+					input[type='text'] {
+						border:0;
+						color: @hover;
+					}
+				}
+				div {
+					max-width: 300px;
+					margin: 0 auto;
+					margin-bottom: 30px;
+				}
+				.ui-widget-header {
+					background-color: @hover;
+				}
+				.ui-state-active{
+					background-color: @hover;
+					border: @hover;
+				}
+			}
+			.sixth {
+				border-bottom: 1px solid @border;
+				h4 {
+					margin-left: 20px;
+					font-family: @Open;
+					font-size: 11.51px;
+					line-height: 11.51px;
+					font-weight: 600;
+					text-transform: uppercase;
+					color: #52555f;
+				}
+				form {
+					ul {
+						margin-top: 20px;
+						li {
+							list-style: none;
+							margin-bottom: 10px;
+						}
+					}
+					.checkbox {
+  						vertical-align: top;
+  						margin: 0 3px 0 0;
+  						width: 17px;
+ 						height: 17px;
+					}
+					// показываем, что label кликабельный
+					.checkbox + label {
+  						cursor: pointer;
+					}
+					// прячем оригинальный чекбокс
+					.checkbox:not(checked) {
+  						position: absolute;
+  						opacity: 0;
+					}
+					// позиционируем псевдочекбокс и оставляем слева от label место под псевдочекбокс
+					.checkbox:not(checked) + label {
+  						position: relative; 
+  						padding: 0 0 0 40px; 
+					}
+					// оформляем чекбокс в выкл состоянии
+					.checkbox:not(checked) + label:before {
+  						content: '';
+  						position: absolute;
+  						top: -3px;
+  						left: 0;
+  						width: 23px;
+  						height: 23px;
+  						border: 1px solid @border;
+  						border-radius: 50%;
+  						background: #FFF;
+					}
+					// Оформление второй части чекбокса в выключенном состоянии
+					.checkbox:not(checked) + label:after {
+  						content: '';
+  						position: absolute;
+  						left: 3px;
+  						width: 17px;
+  						height: 17px;
+ 						border-radius: 50%;
+  						background: @hover no-repeat center;
+  						background-image: url('../img/check2.png');
+  						box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+  						opacity: 0;
+  						transition: all .2s; /*анимация, чтобы чекбокс переключался плавно*/
+					}
+					.checkbox:checked + label:after {
+						opacity: 1;
+					}
+				}
 			}	
+		}
+		.restaurants {
+			.block {
+				margin-left: 30px;
+				border-radius: 2px;
+				border: 1px solid #ededed;
+				display: flex;
+				margin-bottom: 30px;
+				background-color: @standart;
+
+				.left {
+					float: left;
+					padding: 15px 17px 15px 15px;
+					width: 17.67%;
+
+				}
+				.middle {
+					font-family: @Open;
+					float: left;
+					padding: 15px 0;
+					width: 58.33%;
+
+					h5 {
+						color: @gray;
+						font-size: 18px;
+						font-weight: 600;
+						margin: 0;
+						margin-top: 6px;
+					}
+					h6 {
+						font-size: 14px;
+						color: #748796;
+						font-weight: 300;
+						margin-top: 18px;
+						margin-bottom: 13px;
+					}
+
+					.options {
+						& > div {
+							float: left;
+
+							&:nth-child(1) {
+								img {
+									top: 1px;
+								}
+							}
+							&:nth-child(2) {
+								img {
+									top: 3px;
+								}
+							}
+
+							img {
+								margin-right: 8px;
+								position: relative;
+								top: 2px;
+								float: left;
+							}
+
+							span {
+								color: #748796;
+								font-size: 14px;
+								font-weight: 300;
+							}
+						}
+
+						.price,.time {
+							margin: 0;
+							margin-right: 40px;
+						}
+					}
+				}
+
+				.right {
+					float: left;
+					width: 24%;
+					border-left: 1px solid @border;
+					background-color: @white;
+					padding: 15px 37px;
+					text-align: center;
+					img {
+
+					}
+					h6 {
+						font-size: 14px;
+						color: #748796;
+						font-weight: 300;
+						margin-top: 18px;
+						margin-bottom: 13px;
+					}
+					a {
+						display: inline-block;
+						float: right;
+						color: @hover;
+						font-size: 14px;
+						font-weight: 300;
+						border: 2px dashed @hover;
+						border-radius: 3px;
+						padding: 6px 15px;
+						text-decoration: none;
+					}
+				}
+			}
+			nav {
+				margin-left: 12px;
+				ul {
+					li {
+						a {
+							color: #414551;
+							font-family: @Open;
+							font-size: 16px;
+							line-height: 32px;
+							padding-left: 20px;
+							padding-right: 20px;
+							margin: 0 2px;
+							.border-radius(3px);
+						}
+					}
+				}
+			}
 		}
 	}
 }
+footer {
+	background: url('../img/footer_bg.jpg') no-repeat;
+	background-size: cover;
+	padding: 80px 0 95px;
+	position: relative;
+	z-index: 2;
+	margin-top: -5px;
+
+	.container {
+
+		.row:last-child {
+			margin-top: 90px;
+		}
+	}
+
+	.left {
+		margin-right: 50px !important;
+	}
+
+	h4 {
+		color: #fff;
+		font-size: 32px;
+		font-family: @What;
+		margin: 0;
+
+		span {
+			font-weight: bold;
+			color: #e8500e;
+		}
+	}
+
+	h5 {
+		color: #fff;
+		font-size: 21px;
+		font-weight: 300;
+		font-family: @Roboto;
+		margin: 0;
+		margin-bottom: 12px;
+	}
+
+	.main {
+		color: #a2a2a3;
+		font-size: 14px;
+		font-weight: 300;
+		font-family: @Open;
+		line-height: 32.5px;
+		list-style: none;
+		float: left;
+
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+			color: @hover;
+		}
+	}
+
+	img {
+		margin-right: 8px;
+	}
+
+	.special {
+		margin-top: 35px;
+
+		span {
+			color: #fff;
+			font-size: 21px;
+			font-family: @Roboto;
+			font-weight: 300;
+			margin-right: 15px;
+		}
+		a {
+			font-family: @WhatBold;
+			font-weight: bold;
+			color: #e8500e;
+			font-size: 26px;
+		}
+	}
+}
+
 
 
 
@@ -359,6 +715,47 @@ header {
 
 		form input[type="submit"] {
 			margin-top: 20px;
+		}
+	}
+
+	.filters {
+		aside {
+			.first {
+				li {
+					&:nth-child(2) {
+    					padding: 0 20px !important;
+					}
+				}
+			}
+			.second {
+				width: 100%;
+				form {
+					input[type='text'] {
+						width: 200px !important;
+					}
+				}
+			}
+		}
+	}
+
+	footer {
+		text-align: center;
+
+		.container {
+			.row:last-child {
+			margin-top: 10px;
+			}
+			.row > div {
+			margin-bottom: 30px;
+			}
+		}
+
+		.main {
+			float: none;
+		}
+
+		.left {
+			margin-right: 0 !important;
 		}
 	}
 }
